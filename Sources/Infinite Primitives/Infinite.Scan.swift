@@ -100,7 +100,7 @@ extension Infinite.Scan {
         var emittedInitial: Bool = false
 
         @inlinable
-        init(
+        package init(
             accumulator: Result,
             source: consuming Source.Iterator,
             combine: @escaping @Sendable (Result, Source.Element) -> Result

@@ -97,7 +97,7 @@ extension Infinite.Zip {
         var second: Second.Iterator
 
         @inlinable
-        init(first: consuming First.Iterator, second: consuming Second.Iterator) {
+        package init(first: consuming First.Iterator, second: consuming Second.Iterator) {
             self.first = first
             self.second = second
         }

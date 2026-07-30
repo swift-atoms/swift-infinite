@@ -80,7 +80,7 @@ extension Infinite.Cycle {
         var index: Base.Index
 
         @inlinable
-        init(base: Base) {
+        package init(base: Base) {
             self.base = base
             self.index = base.startIndex
         }

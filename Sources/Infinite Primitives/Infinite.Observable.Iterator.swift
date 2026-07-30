@@ -27,7 +27,7 @@ where Source.Tail == Source {
     var current: Source
 
     @inlinable
-    init(_ source: Source) {
+    package init(_ source: Source) {
         self.current = source
     }
 
