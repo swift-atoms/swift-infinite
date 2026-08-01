@@ -7,8 +7,8 @@ import Testing
 // Note: Generic types cannot use #Tests directly.
 // We use @Suite with nested structure to match the organizational pattern.
 
-@Suite("Infinite.Unfold")
-struct InfiniteUnfoldTests {
+@Suite
+struct `Infinite Unfold Tests` {
     @Suite struct Unit {
         @Test
         func `natural numbers via unfold`() {
@@ -62,4 +62,7 @@ struct InfiniteUnfoldTests {
             #expect(first6 == [1, 2, 1, 2, 1, 2])
         }
     }
+
+    @Suite struct `Edge Case` {}
+    @Suite struct Integration {}
 }

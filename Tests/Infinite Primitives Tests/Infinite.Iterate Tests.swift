@@ -7,8 +7,8 @@ import Testing
 // Note: Generic types cannot use #Tests directly.
 // We use @Suite with nested structure to match the organizational pattern.
 
-@Suite("Infinite.Iterate")
-struct InfiniteIterateTests {
+@Suite
+struct `Infinite Iterate Tests` {
     @Suite struct Unit {
         @Test
         func `natural numbers`() {
@@ -68,4 +68,7 @@ struct InfiniteIterateTests {
             #expect(first5 == ["a", "aa", "aaa", "aaaa", "aaaaa"])
         }
     }
+
+    @Suite struct `Edge Case` {}
+    @Suite struct Integration {}
 }

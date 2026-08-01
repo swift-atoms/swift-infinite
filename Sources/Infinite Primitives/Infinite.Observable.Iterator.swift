@@ -20,9 +20,6 @@ public import Iterator_Protocol
 ///   `Infinite.Observable.Iterator` (reflected in file name and documentation).
 public struct __InfiniteObservableIterator<Source: Infinite.Observable>: ~Copyable, Iterator_Primitive.Iterator.`Protocol`
 where Source.Tail == Source {
-    /// The element type: the source observable's element.
-    public typealias Element = Source.Element
-
     @usableFromInline
     var current: Source
 
@@ -30,6 +27,11 @@ where Source.Tail == Source {
     package init(_ source: Source) {
         self.current = source
     }
+}
+
+extension __InfiniteObservableIterator {
+    /// The element type: the source observable's element.
+    public typealias Element = Source.Element
 
     /// Returns the next element, advancing the iterator.
     @inlinable

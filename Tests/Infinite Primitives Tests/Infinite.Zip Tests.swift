@@ -7,8 +7,8 @@ import Testing
 // Note: Generic types cannot use #Tests directly.
 // We use @Suite with nested structure to match the organizational pattern.
 
-@Suite("Infinite.Zip")
-struct InfiniteZipTests {
+@Suite
+struct `Infinite Zip Tests` {
     @Suite struct Unit {
         @Test
         func `zips naturals with squares`() {
@@ -93,10 +93,13 @@ struct InfiniteZipTests {
 
             let iteratedValues = Array(zipped.prefix(5))
             #expect(headValues.count == iteratedValues.count)
-            for i in 0..<5 {
+            headValues.indices.forEach { i in
                 #expect(headValues[i].0 == iteratedValues[i].0)
                 #expect(headValues[i].1 == iteratedValues[i].1)
             }
         }
     }
+
+    @Suite struct `Edge Case` {}
+    @Suite struct Integration {}
 }

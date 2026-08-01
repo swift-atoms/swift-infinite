@@ -7,8 +7,8 @@ import Testing
 // Note: Generic types cannot use #Tests directly.
 // We use @Suite with nested structure to match the organizational pattern.
 
-@Suite("Infinite.Repeat")
-struct InfiniteRepeatTests {
+@Suite
+struct `Infinite Repeat Tests` {
     @Suite struct Unit {
         @Test
         func `init stores value`() {
@@ -76,4 +76,7 @@ struct InfiniteRepeatTests {
             #expect(set.count == 2)
         }
     }
+
+    @Suite struct `Edge Case` {}
+    @Suite struct Integration {}
 }

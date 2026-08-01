@@ -7,8 +7,8 @@ import Testing
 // Note: Generic types cannot use #Tests directly.
 // We use @Suite with nested structure to match the organizational pattern.
 
-@Suite("Infinite.Map")
-struct InfiniteMapTests {
+@Suite
+struct `Infinite Map Tests` {
     @Suite struct Unit {
         @Test
         func `maps naturals to squares`() {
@@ -73,4 +73,7 @@ struct InfiniteMapTests {
             #expect(headValues == iteratedValues)
         }
     }
+
+    @Suite struct `Edge Case` {}
+    @Suite struct Integration {}
 }

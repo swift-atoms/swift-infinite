@@ -7,8 +7,8 @@ import Testing
 // Note: Generic types cannot use #Tests directly.
 // We use @Suite with nested structure to match the organizational pattern.
 
-@Suite("Infinite.Scan")
-struct InfiniteScanTests {
+@Suite
+struct `Infinite Scan Tests` {
     @Suite struct Unit {
         @Test
         func `running sum`() {
@@ -73,4 +73,7 @@ struct InfiniteScanTests {
             #expect(first4[3] == Stats(sum: 6, count: 3))
         }
     }
+
+    @Suite struct `Edge Case` {}
+    @Suite struct Integration {}
 }

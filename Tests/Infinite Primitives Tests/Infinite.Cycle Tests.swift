@@ -7,8 +7,8 @@ import Testing
 // Note: Generic types cannot use #Tests directly.
 // We use @Suite with nested structure to match the organizational pattern.
 
-@Suite("Infinite.Cycle")
-struct InfiniteCycleTests {
+@Suite
+struct `Infinite Cycle Tests` {
     @Suite struct Unit {
         @Test
         func `cycles through array`() {
@@ -83,11 +83,13 @@ struct InfiniteCycleTests {
         }
     }
 
-    @Suite struct EdgeCase {
+    @Suite struct `Edge Case` {
         @Test
         func `init returns nil for empty collection`() {
             let empty: Infinite.Cycle<[Int]>? = Infinite.Cycle([])
             #expect(empty == nil)
         }
     }
+
+    @Suite struct Integration {}
 }
