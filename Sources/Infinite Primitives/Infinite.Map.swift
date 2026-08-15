@@ -46,7 +46,8 @@ extension Infinite {
         ///   - source: The source infinite sequence.
         ///   - transform: The transformation to apply to each element.
         @inlinable
-        public init(_ source: Source, _ transform: @escaping @Sendable (Source.Element) -> Element) {
+        public init(_ source: Source, _ transform: @escaping @Sendable (Source.Element) -> Element)
+        {
             self.source = source
             self.transform = transform
         }

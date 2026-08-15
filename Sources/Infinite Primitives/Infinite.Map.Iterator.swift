@@ -18,7 +18,10 @@ extension Infinite.Map {
         let transform: @Sendable (Source.Element) -> Element
 
         @inlinable
-        package init(base: consuming Source.Iterator, transform: @escaping @Sendable (Source.Element) -> Element) {
+        package init(
+            base: consuming Source.Iterator,
+            transform: @escaping @Sendable (Source.Element) -> Element
+        ) {
             self.base = base
             self.transform = transform
         }

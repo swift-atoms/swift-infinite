@@ -14,7 +14,11 @@ struct `Infinite Cycle Tests` {
         func `cycles through array`() {
             let colors = Infinite.Cycle(["red", "green", "blue"])!
             let first10 = Array(colors.prefix(10))
-            #expect(first10 == ["red", "green", "blue", "red", "green", "blue", "red", "green", "blue", "red"])
+            #expect(
+                first10 == [
+                    "red", "green", "blue", "red", "green", "blue", "red", "green", "blue", "red",
+                ]
+            )
         }
 
         @Test
