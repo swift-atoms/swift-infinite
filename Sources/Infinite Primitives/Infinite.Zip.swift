@@ -90,7 +90,8 @@ extension Infinite.Zip: Sendable where First: Sendable, Second: Sendable {}
 // WHY: Generic parameter blocks structural Sendable inference.
 // WHEN TO REMOVE: When compiler gains structural Sendable through generic params.
 // TRACKING: unsafe-audit-findings.md Category D SP-4.
-extension Infinite.Zip.Iterator: @unchecked Sendable where First.Iterator: Sendable, Second.Iterator: Sendable {}
+extension Infinite.Zip.Iterator: @unchecked Sendable
+where First.Iterator: Sendable, Second.Iterator: Sendable {}
 
 // MARK: - Enumerable
 

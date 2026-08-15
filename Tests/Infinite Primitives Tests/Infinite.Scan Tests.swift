@@ -62,7 +62,9 @@ struct `Infinite Scan Tests` {
             }
 
             let naturals = Infinite.Iterate(initial: 1) { $0 + 1 }
-            let stats = Infinite.Scan(initial: Stats(sum: 0, count: 0), source: naturals) { acc, n in
+            let stats = Infinite.Scan(initial: Stats(sum: 0, count: 0), source: naturals) {
+                acc,
+                n in
                 Stats(sum: acc.sum + n, count: acc.count + 1)
             }
 

@@ -87,7 +87,8 @@ extension Infinite.Scan: Sendable where Source: Sendable, Result: Sendable {}
 // WHY: Generic parameter blocks structural Sendable inference.
 // WHEN TO REMOVE: When compiler gains structural Sendable through generic params.
 // TRACKING: unsafe-audit-findings.md Category D SP-4.
-extension Infinite.Scan.Iterator: @unchecked Sendable where Source.Iterator: Sendable, Result: Sendable {}
+extension Infinite.Scan.Iterator: @unchecked Sendable
+where Source.Iterator: Sendable, Result: Sendable {}
 
 // MARK: - Enumerable
 
