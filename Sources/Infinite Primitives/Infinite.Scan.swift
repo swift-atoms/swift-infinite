@@ -1,7 +1,7 @@
 // Infinite.Scan.swift
 // Running accumulation over an infinite sequence (scanl).
 
-public import Iterator_Protocol
+import Iterator_Protocol
 
 extension Infinite {
     /// An infinite sequence of running accumulations.

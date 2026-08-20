@@ -1,7 +1,7 @@
 // Infinite.Map.swift
 // Lazy transformation of infinite sequences.
 
-public import Iterator_Protocol
+import Iterator_Protocol
 
 extension Infinite {
     /// A lazy transformation of an infinite sequence.

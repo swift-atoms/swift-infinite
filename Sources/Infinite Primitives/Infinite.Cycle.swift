@@ -2,7 +2,7 @@
 // Cycling through a finite collection indefinitely.
 
 public import Collection_Primitives
-public import Iterator_Protocol
+import Iterator_Protocol
 
 extension Infinite {
     /// An infinite sequence that cycles through a finite collection.

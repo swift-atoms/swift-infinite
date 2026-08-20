@@ -1,7 +1,7 @@
 // Infinite.Zip.swift
 // Element-wise combination of two infinite sequences.
 
-public import Iterator_Protocol
+import Iterator_Protocol
 
 extension Infinite {
     /// An infinite sequence combining elements from two sources pairwise.
