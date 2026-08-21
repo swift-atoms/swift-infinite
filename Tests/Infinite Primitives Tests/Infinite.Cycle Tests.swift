@@ -1,11 +1,6 @@
-// Infinite.Cycle Tests.swift
-
 import Testing
 
 @testable import Infinite_Primitives
-
-// Note: Generic types cannot use #Tests directly.
-// We use @Suite with nested structure to match the organizational pattern.
 
 @Suite
 struct `Infinite Cycle Tests` {
@@ -36,7 +31,7 @@ struct `Infinite Cycle Tests` {
 
         @Test
         func `works with different collection types`() {
-            // String (collection of characters)
+
             let chars = Infinite.Cycle("abc")!
             let first6 = Array(chars.prefix(6))
             #expect(first6 == ["a", "b", "c", "a", "b", "c"])
@@ -64,8 +59,6 @@ struct `Infinite Cycle Tests` {
         func `head/tail matches iteration for first few elements`() {
             let cycle = Infinite.Cycle([1, 2, 3])!
 
-            // Since tail type changes after first access (becomes Rotated),
-            // we verify the first element and then verify iteration matches head
             #expect(cycle.head == 1)
 
             let iteratedValues = Array(cycle.prefix(6))

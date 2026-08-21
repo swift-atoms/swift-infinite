@@ -1,11 +1,6 @@
-// Infinite.Iterate Tests.swift
-
 import Testing
 
 @testable import Infinite_Primitives
-
-// Note: Generic types cannot use #Tests directly.
-// We use @Suite with nested structure to match the organizational pattern.
 
 @Suite
 struct `Infinite Iterate Tests` {
@@ -53,7 +48,7 @@ struct `Infinite Iterate Tests` {
 
         @Test
         func `works with complex transform`() {
-            // Collatz-like sequence starting from 10
+
             let seq = Infinite.Iterate(initial: 10) { n in
                 n % 2 == 0 ? n / 2 : 3 * n + 1
             }

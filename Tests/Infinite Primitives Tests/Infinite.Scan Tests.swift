@@ -1,11 +1,6 @@
-// Infinite.Scan Tests.swift
-
 import Testing
 
 @testable import Infinite_Primitives
-
-// Note: Generic types cannot use #Tests directly.
-// We use @Suite with nested structure to match the organizational pattern.
 
 @Suite
 struct `Infinite Scan Tests` {
@@ -15,7 +10,7 @@ struct `Infinite Scan Tests` {
             let naturals = Infinite.Iterate(initial: 1) { $0 + 1 }
             let runningSums = Infinite.Scan(initial: 0, source: naturals) { acc, n in acc + n }
             let first6 = Array(runningSums.prefix(6))
-            // 0, 0+1=1, 1+2=3, 3+3=6, 6+4=10, 10+5=15
+
             #expect(first6 == [0, 1, 3, 6, 10, 15])
         }
 
@@ -24,7 +19,7 @@ struct `Infinite Scan Tests` {
             let naturals = Infinite.Iterate(initial: 1) { $0 + 1 }
             let factorials = Infinite.Scan(initial: 1, source: naturals) { acc, n in acc * n }
             let first6 = Array(factorials.prefix(6))
-            // 1, 1*1=1, 1*2=2, 2*3=6, 6*4=24, 24*5=120
+
             #expect(first6 == [1, 1, 2, 6, 24, 120])
         }
 

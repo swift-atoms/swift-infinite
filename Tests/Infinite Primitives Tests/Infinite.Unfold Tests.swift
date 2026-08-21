@@ -1,11 +1,6 @@
-// Infinite.Unfold Tests.swift
-
 import Testing
 
 @testable import Infinite_Primitives
-
-// Note: Generic types cannot use #Tests directly.
-// We use @Suite with nested structure to match the organizational pattern.
 
 @Suite
 struct `Infinite Unfold Tests` {
@@ -41,7 +36,7 @@ struct `Infinite Unfold Tests` {
 
         @Test
         func `separate state and element types`() {
-            // State is (counter, multiplier), element is just the product
+
             let products = Infinite.Unfold(seed: (1, 2)) { count, mult in
                 (count * mult, (count + 1, mult))
             }
@@ -51,7 +46,7 @@ struct `Infinite Unfold Tests` {
 
         @Test
         func `alternating sequence via tuple state`() {
-            // Demonstrate unfold with tuple state: alternating between two values
+
             let seq = Infinite.Unfold(seed: (true, 1, 2)) { toggle, a, b in
                 guard toggle else {
                     return (b, (true, a, b))

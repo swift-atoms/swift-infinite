@@ -1,11 +1,6 @@
-// Infinite.Map Tests.swift
-
 import Testing
 
 @testable import Infinite_Primitives
-
-// Note: Generic types cannot use #Tests directly.
-// We use @Suite with nested structure to match the organizational pattern.
 
 @Suite
 struct `Infinite Map Tests` {
