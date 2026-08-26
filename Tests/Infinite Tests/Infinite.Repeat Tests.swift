@@ -1,6 +1,6 @@
 import Testing
 
-@testable import Infinite_Primitives
+@testable import Infinite
 
 @Suite
 struct `Infinite Repeat Tests` {

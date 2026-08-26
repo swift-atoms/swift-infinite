@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-infinite-primitives",
+    name: "swift-infinite",
     platforms: [
         .macOS(.v27),
         .iOS(.v27),
@@ -13,53 +13,53 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Infinite Primitives",
-            targets: ["Infinite Primitives"]
+            name: "Infinite",
+            targets: ["Infinite"]
         ),
         .library(
-            name: "Infinite Primitives Test Support",
-            targets: ["Infinite Primitives Test Support"]
+            name: "Infinite Test Support",
+            targets: ["Infinite Test Support"]
         ),
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-primitives/swift-collection-primitives.git",
+            url: "https://github.com/swift-molecules/swift-collection.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-input-primitives.git",
+            url: "https://github.com/swift-molecules/swift-input.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-iterator-primitives.git",
+            url: "https://github.com/swift-molecules/swift-iterator.git",
             branch: "main"
         ),
     ],
     targets: [
         .target(
-            name: "Infinite Primitives",
+            name: "Infinite",
             dependencies: [
-                .product(name: "Collection Primitives", package: "swift-collection-primitives"),
-                .product(name: "Input Primitives", package: "swift-input-primitives"),
-                .product(name: "Iterator Protocol", package: "swift-iterator-primitives"),
+                .product(name: "Collection", package: "swift-collection"),
+                .product(name: "Input", package: "swift-input"),
+                .product(name: "Iterator Protocol", package: "swift-iterator"),
             ]
         ),
         .target(
-            name: "Infinite Primitives Test Support",
+            name: "Infinite Test Support",
             dependencies: [
-                "Infinite Primitives",
+                "Infinite",
                 .product(
-                    name: "Collection Primitives Test Support",
-                    package: "swift-collection-primitives"
+                    name: "Collection Test Support",
+                    package: "swift-collection"
                 ),
             ],
             path: "Tests/Support"
         ),
         .testTarget(
-            name: "Infinite Primitives Tests",
+            name: "Infinite Tests",
             dependencies: [
-                "Infinite Primitives",
-                "Infinite Primitives Test Support",
+                "Infinite",
+                "Infinite Test Support",
             ]
         ),
     ],

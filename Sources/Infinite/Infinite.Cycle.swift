@@ -1,4 +1,4 @@
-public import Collection_Primitives
+public import Collection
 import Iterator_Protocol
 
 extension Infinite {
