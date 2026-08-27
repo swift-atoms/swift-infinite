@@ -17,50 +17,41 @@ let package = Package(
             targets: ["Infinite"]
         ),
         .library(
-            name: "Infinite Test Support",
-            targets: ["Infinite Test Support"]
+            name: "Infinite Standard Library Integration",
+            targets: ["Infinite Standard Library Integration"]
+        ),
+        .library(
+            name: "Infinite Apple Foundation Integration",
+            targets: ["Infinite Apple Foundation Integration"]
         ),
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-molecules/swift-collection.git",
+            url: "https://github.com/swift-atoms/swift-iterator.git",
             branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-input.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-iterator.git",
-            branch: "main"
-        ),
+        )
     ],
     targets: [
         .target(
             name: "Infinite",
             dependencies: [
-                .product(name: "Collection", package: "swift-collection"),
-                .product(name: "Input", package: "swift-input"),
-                .product(name: "Iterator Protocol", package: "swift-iterator"),
+                .product(name: "Iterator", package: "swift-iterator")
             ]
         ),
         .target(
-            name: "Infinite Test Support",
+            name: "Infinite Standard Library Integration",
+            dependencies: ["Infinite"]
+        ),
+        .target(
+            name: "Infinite Apple Foundation Integration",
             dependencies: [
                 "Infinite",
-                .product(
-                    name: "Collection Test Support",
-                    package: "swift-collection"
-                ),
-            ],
-            path: "Tests/Support"
+                "Infinite Standard Library Integration",
+            ]
         ),
         .testTarget(
             name: "Infinite Tests",
-            dependencies: [
-                "Infinite",
-                "Infinite Test Support",
-            ]
+            dependencies: ["Infinite"]
         ),
     ],
     swiftLanguageModes: [.v6]

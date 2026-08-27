@@ -1,5 +1,4 @@
-public import Collection
-import Iterator_Protocol
+import Iterator
 
 extension Infinite {
 
@@ -34,20 +33,6 @@ extension Infinite.Cycle: Sendable where Base: Sendable {}
 extension Infinite.Cycle.Iterator: @unchecked Sendable where Base: Sendable, Base.Index: Sendable {}
 
 extension Infinite.Cycle: Infinite.Enumerable {}
-
-extension Infinite.Cycle: Infinite.Observable where Base: Swift.RandomAccessCollection {
-
-    @inlinable
-    public var head: Base.Element {
-        base[base.startIndex]
-    }
-
-    @inlinable
-    public var tail: Infinite.Cycle<Collection.Rotated<Base>> {
-        let rotated = Collection.Rotated(base: base, startOffset: .one)
-        return Infinite.Cycle<Collection.Rotated<Base>>(__unchecked: (), rotated)
-    }
-}
 
 extension Infinite.Cycle: Equatable where Base: Equatable {
 
