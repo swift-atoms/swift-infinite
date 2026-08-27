@@ -2,7 +2,7 @@ public import Iterator
 
 extension Infinite.Zip {
 
-    public struct Iterator: ~Copyable, Iterator_Primitive.Iterator.`Protocol` {
+    public struct Iterator: ~Copyable, Infinite.IteratorProtocol {
         @usableFromInline
         var first: First.Iterator
 

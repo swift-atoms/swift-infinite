@@ -2,9 +2,11 @@ public import Iterator
 
 extension Infinite {
 
+    public typealias IteratorProtocol = Iterator.`Protocol`
+
     public protocol Enumerable {
         associatedtype Element
-        associatedtype Iterator: ~Copyable, Iterator_Primitive.Iterator.`Protocol`
+        associatedtype Iterator: ~Copyable, Infinite.IteratorProtocol
         where Iterator.Element == Element, Iterator.Failure == Never
         func makeIterator() -> Iterator
     }

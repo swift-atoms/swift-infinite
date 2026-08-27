@@ -17,12 +17,12 @@ let package = Package(
             targets: ["Infinite"]
         ),
         .library(
-            name: "Infinite Standard Library Integration",
-            targets: ["Infinite Standard Library Integration"]
-        ),
-        .library(
             name: "Infinite Apple Foundation Integration",
             targets: ["Infinite Apple Foundation Integration"]
+        ),
+        .library(
+            name: "Infinite Test Support",
+            targets: ["Infinite Test Support"]
         ),
     ],
     dependencies: [
@@ -39,19 +39,20 @@ let package = Package(
             ]
         ),
         .target(
-            name: "Infinite Standard Library Integration",
+            name: "Infinite Apple Foundation Integration",
             dependencies: ["Infinite"]
         ),
         .target(
-            name: "Infinite Apple Foundation Integration",
-            dependencies: [
-                "Infinite",
-                "Infinite Standard Library Integration",
-            ]
+            name: "Infinite Test Support",
+            dependencies: ["Infinite"],
+            path: "Tests/Support"
         ),
         .testTarget(
             name: "Infinite Tests",
-            dependencies: ["Infinite"]
+            dependencies: [
+                "Infinite",
+                "Infinite Test Support",
+            ]
         ),
     ],
     swiftLanguageModes: [.v6]
