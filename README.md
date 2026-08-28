@@ -11,7 +11,7 @@ Infinite-sequence value types for Swift — an `Infinite` namespace of lazy stre
 `Infinite` models sequences that never end. Where a finite collection is *built* by indexing (ordinal → value), an infinite sequence is *observed* by decomposition: a `head` (the current element) and a `tail` (the rest of the stream). That coalgebraic view is captured by `Infinite.Observable`; the iterator-based view, used by `prefix`, is `Infinite.Enumerable`. Concrete types conform to both when possible.
 
 ```swift
-import Infinite_Primitives
+import Infinite
 
 // Generate the naturals by repeated function application: 0, 1, 2, 3, ...
 let naturals = Infinite.Iterate(initial: 0) { $0 + 1 }
@@ -33,7 +33,7 @@ print(naturals.tail.tail.head)  // 2
 `Unfold` is the general anamorphism: it carries hidden state separate from the emitted element, so a single value can be produced from a richer step. `Scan` threads a running accumulator through a source, emitting every intermediate result; `Cycle` repeats a finite collection forever.
 
 ```swift
-import Infinite_Primitives
+import Infinite
 
 // Fibonacci: state is a pair, but each step emits a single value.
 let fib = Infinite.Unfold(seed: (0, 1)) { a, b in (a, (b, a + b)) }
@@ -57,7 +57,7 @@ Unlike `Swift.zip`, `Infinite.zip` never terminates early — both sources are u
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-primitives/swift-infinite-primitives.git", branch: "main")
+    .package(url: "https://github.com/swift-atoms/swift-infinite.git", branch: "main")
 ]
 ```
 
@@ -65,7 +65,7 @@ dependencies: [
 .target(
     name: "App",
     dependencies: [
-        .product(name: "Infinite Primitives", package: "swift-infinite-primitives"),
+        .product(name: "Infinite", package: "swift-infinite"),
     ]
 )
 ```
@@ -81,7 +81,7 @@ Two library products. Depends only on the `Collection`, `Input`, and `Iterator` 
 | Product | Target | Purpose |
 |---------|--------|---------|
 | `Infinite Primitives` | `Sources/Infinite Primitives/` | The `Infinite` namespace: the protocols `Observable` (head/tail coalgebra) and `Enumerable` (forward iteration); the generators `Repeat`, `Iterate`, `Unfold`, `Cycle`; and the transformers `Map`, `Zip`, `Scan`. |
-| `Infinite Primitives Test Support` | `Tests/Support/` | Re-exports the main target for test consumers. |
+| `Infinite Test Support` | `Tests/Support/` | Re-exports the main target for test consumers. |
 
 Foundation-free.
 
