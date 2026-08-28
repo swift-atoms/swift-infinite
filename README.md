@@ -49,6 +49,10 @@ print(colors.prefix(7))
 // ["red", "green", "blue", "red", "green", "blue", "red"]
 ```
 
+`Cycle.base` exposes the retained non-empty collection as a read-only value so
+integration packages can derive collection views without taking ownership of
+cycle storage or mutation.
+
 Unlike `Swift.zip`, `Infinite.zip` never terminates early — both sources are unbounded, so the result is too. Iterators are `~Copyable` single-use values with inline storage and no heap allocation; `prefix` is the safe bridge that materializes a bounded number of elements into an array.
 
 ---

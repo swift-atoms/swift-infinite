@@ -5,17 +5,21 @@ extension Infinite {
     public struct Cycle<Base: Swift.Collection> {
 
         @usableFromInline
-        let base: Base
+        let _base: Base
+
+        /// The non-empty collection repeated by this cycle.
+        @inlinable
+        public var base: Base { _base }
 
         @inlinable
         public init?(_ base: Base) {
             guard !base.isEmpty else { return nil }
-            self.base = base
+            self._base = base
         }
 
         @inlinable
         public init(__unchecked: Void, _ base: Base) {
-            self.base = base
+            self._base = base
         }
     }
 }

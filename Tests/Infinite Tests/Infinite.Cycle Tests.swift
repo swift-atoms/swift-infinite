@@ -1,6 +1,6 @@
 import Testing
 
-@testable import Infinite
+import Infinite
 
 @Suite
 struct `Infinite Cycle Tests` {
@@ -27,6 +27,14 @@ struct `Infinite Cycle Tests` {
         func `unchecked init works for non-empty`() {
             let cycle = Infinite.Cycle(__unchecked: (), [1, 2, 3])
             #expect(Array(cycle.prefix(6)) == [1, 2, 3, 1, 2, 3])
+        }
+
+        @Test
+        func `base exposes the retained collection`() {
+            let values = [1, 2, 3]
+            let cycle = Infinite.Cycle(values)!
+
+            #expect(cycle.base == values)
         }
 
         @Test
