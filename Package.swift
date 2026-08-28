@@ -23,15 +23,15 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-molecules/swift-collection.git",
+            url: "https://github.com/swift-atoms/swift-collection.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-input.git",
+            url: "https://github.com/swift-atoms/swift-input.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-iterator.git",
+            url: "https://github.com/swift-atoms/swift-iterator.git",
             branch: "main"
         ),
     ],
@@ -47,7 +47,7 @@ let package = Package(
         .target(
             name: "Infinite Test Support",
             dependencies: [
-                "Infinite",
+                .target(name: "Infinite"),
                 .product(
                     name: "Collection Test Support",
                     package: "swift-collection"
@@ -58,8 +58,8 @@ let package = Package(
         .testTarget(
             name: "Infinite Tests",
             dependencies: [
-                "Infinite",
-                "Infinite Test Support",
+                .target(name: "Infinite"),
+                .target(name: "Infinite Test Support"),
             ]
         ),
     ],
