@@ -1,7 +1,7 @@
-public import Iterator
+public import Iterator_Protocol
 
 public struct __InfiniteObservableIterator<Source: Infinite.Observable>: ~Copyable,
-    Infinite.IteratorProtocol
+    Iterator_Primitive.Iterator.`Protocol`
 where Source.Tail == Source {
     @usableFromInline
     var current: Source

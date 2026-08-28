@@ -1,25 +1,22 @@
-import Iterator
+public import Collection
+import Iterator_Protocol
 
 extension Infinite {
 
     public struct Cycle<Base: Swift.Collection> {
 
         @usableFromInline
-        let _base: Base
-
-        /// The non-empty collection repeated by this cycle.
-        @inlinable
-        public var base: Base { _base }
+        let base: Base
 
         @inlinable
         public init?(_ base: Base) {
             guard !base.isEmpty else { return nil }
-            self._base = base
+            self.base = base
         }
 
         @inlinable
         public init(__unchecked: Void, _ base: Base) {
-            self._base = base
+            self.base = base
         }
     }
 }
@@ -37,6 +34,20 @@ extension Infinite.Cycle: Sendable where Base: Sendable {}
 extension Infinite.Cycle.Iterator: @unchecked Sendable where Base: Sendable, Base.Index: Sendable {}
 
 extension Infinite.Cycle: Infinite.Enumerable {}
+
+extension Infinite.Cycle: Infinite.Observable where Base: Swift.RandomAccessCollection {
+
+    @inlinable
+    public var head: Base.Element {
+        base[base.startIndex]
+    }
+
+    @inlinable
+    public var tail: Infinite.Cycle<Collection.Rotated<Base>> {
+        let rotated = Collection.Rotated(base: base, startOffset: .one)
+        return Infinite.Cycle<Collection.Rotated<Base>>(__unchecked: (), rotated)
+    }
+}
 
 extension Infinite.Cycle: Equatable where Base: Equatable {
 

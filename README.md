@@ -49,10 +49,6 @@ print(colors.prefix(7))
 // ["red", "green", "blue", "red", "green", "blue", "red"]
 ```
 
-`Cycle.base` exposes the retained non-empty collection as a read-only value so
-integration packages can derive collection views without taking ownership of
-cycle storage or mutation.
-
 Unlike `Swift.zip`, `Infinite.zip` never terminates early — both sources are unbounded, so the result is too. Iterators are `~Copyable` single-use values with inline storage and no heap allocation; `prefix` is the safe bridge that materializes a bounded number of elements into an array.
 
 ---
@@ -61,7 +57,7 @@ Unlike `Swift.zip`, `Infinite.zip` never terminates early — both sources are u
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-atoms/swift-infinite.git", branch: "main")
+    .package(url: "https://github.com/swift-molecules/swift-infinite.git", branch: "main")
 ]
 ```
 
@@ -74,21 +70,20 @@ dependencies: [
 )
 ```
 
-Requires Swift 6.4 and macOS 27 / iOS 27 / tvOS 27 / watchOS 27 / visionOS 27 (or the matching Linux / Windows toolchain).
+Requires Swift 6.3.1 and macOS 26 / iOS 26 / tvOS 26 / watchOS 26 / visionOS 26 (or the matching Linux / Windows toolchain).
 
 ---
 
 ## Architecture
 
-Three library products. The core depends only on the `Iterator` atom.
+Two library products. Depends only on the `Collection`, `Input`, and `Iterator` primitives.
 
 | Product | Target | Purpose |
 |---------|--------|---------|
 | `Infinite` | `Sources/Infinite/` | The `Infinite` namespace: the protocols `Observable` (head/tail coalgebra) and `Enumerable` (forward iteration); the generators `Repeat`, `Iterate`, `Unfold`, `Cycle`; and the transformers `Map`, `Zip`, `Scan`. |
-| `Infinite Apple Foundation Integration` | `Sources/Infinite Apple Foundation Integration/` | The Foundation-facing aggregation product. |
-| `Infinite Test Support` | `Tests/Support/` | Re-exports the core module for test consumers. |
+| `Infinite Test Support` | `Tests/Support/` | Re-exports the main target for test consumers. |
 
-Foundation is imported only by the Apple Foundation Integration target.
+Foundation-free.
 
 ---
 
@@ -96,10 +91,10 @@ Foundation is imported only by the Apple Foundation Integration target.
 
 | Platform | Status |
 |----------|--------|
-| macOS 27 | Full support |
+| macOS 26 | Full support |
 | Linux | Full support |
 | Windows | Full support |
-| iOS 27 / tvOS 27 / watchOS 27 / visionOS 27 | Supported |
+| iOS / tvOS / watchOS / visionOS | Supported |
 
 ---
 

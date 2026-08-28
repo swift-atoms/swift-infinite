@@ -1,4 +1,4 @@
-import Iterator
+import Iterator_Protocol
 
 extension Infinite {
 

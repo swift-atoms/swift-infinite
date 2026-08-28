@@ -17,34 +17,42 @@ let package = Package(
             targets: ["Infinite"]
         ),
         .library(
-            name: "Infinite Apple Foundation Integration",
-            targets: ["Infinite Apple Foundation Integration"]
-        ),
-        .library(
             name: "Infinite Test Support",
             targets: ["Infinite Test Support"]
         ),
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-atoms/swift-iterator.git",
+            url: "https://github.com/swift-molecules/swift-collection.git",
             branch: "main"
-        )
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-input.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-iterator.git",
+            branch: "main"
+        ),
     ],
     targets: [
         .target(
             name: "Infinite",
             dependencies: [
-                .product(name: "Iterator", package: "swift-iterator")
+                .product(name: "Collection", package: "swift-collection"),
+                .product(name: "Input", package: "swift-input"),
+                .product(name: "Iterator Protocol", package: "swift-iterator"),
             ]
         ),
         .target(
-            name: "Infinite Apple Foundation Integration",
-            dependencies: ["Infinite"]
-        ),
-        .target(
             name: "Infinite Test Support",
-            dependencies: ["Infinite"],
+            dependencies: [
+                "Infinite",
+                .product(
+                    name: "Collection Test Support",
+                    package: "swift-collection"
+                ),
+            ],
             path: "Tests/Support"
         ),
         .testTarget(

@@ -1,8 +1,8 @@
-public import Iterator
+public import Iterator_Protocol
 
 extension Infinite.Cycle {
 
-    public struct Iterator: ~Copyable, Infinite.IteratorProtocol {
+    public struct Iterator: ~Copyable, Iterator_Primitive.Iterator.`Protocol` {
         @usableFromInline
         let base: Base
 

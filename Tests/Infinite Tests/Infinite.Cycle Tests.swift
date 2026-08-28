@@ -1,6 +1,6 @@
 import Testing
 
-import Infinite
+@testable import Infinite
 
 @Suite
 struct `Infinite Cycle Tests` {
@@ -30,19 +30,39 @@ struct `Infinite Cycle Tests` {
         }
 
         @Test
-        func `base exposes the retained collection`() {
-            let values = [1, 2, 3]
-            let cycle = Infinite.Cycle(values)!
-
-            #expect(cycle.base == values)
-        }
-
-        @Test
         func `works with different collection types`() {
 
             let chars = Infinite.Cycle("abc")!
             let first6 = Array(chars.prefix(6))
             #expect(first6 == ["a", "b", "c", "a", "b", "c"])
+        }
+
+        @Test
+        func `head returns first element`() {
+            let cycle = Infinite.Cycle([1, 2, 3])!
+            #expect(cycle.head == 1)
+        }
+
+        @Test
+        func `tail head returns second element`() {
+            let cycle = Infinite.Cycle([1, 2, 3])!
+            #expect(cycle.tail.head == 2)
+        }
+
+        @Test
+        func `tail wraps around`() {
+            let cycle = Infinite.Cycle([1, 2, 3])!
+            #expect(cycle.tail.tail.tail.head == 1)
+        }
+
+        @Test
+        func `head/tail matches iteration for first few elements`() {
+            let cycle = Infinite.Cycle([1, 2, 3])!
+
+            #expect(cycle.head == 1)
+
+            let iteratedValues = Array(cycle.prefix(6))
+            #expect(iteratedValues == [1, 2, 3, 1, 2, 3])
         }
 
         @Test
