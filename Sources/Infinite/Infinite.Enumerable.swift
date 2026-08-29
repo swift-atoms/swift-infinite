@@ -4,7 +4,7 @@ extension Infinite {
 
     public protocol Enumerable {
         associatedtype Element
-        associatedtype Iterator: ~Copyable, Iterator.Iterator.`Protocol`
+        associatedtype Iterator: ~Copyable, Iterator::Iterator.`Protocol`
         where Iterator.Element == Element, Iterator.Failure == Never
         func makeIterator() -> Iterator
     }

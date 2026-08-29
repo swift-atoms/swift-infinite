@@ -2,7 +2,7 @@ public import Iterator_Protocol
 
 extension Infinite.Map {
 
-    public struct Iterator: ~Copyable, Iterator.Iterator.`Protocol` {
+    public struct Iterator: ~Copyable, Iterator::Iterator.`Protocol` {
         @usableFromInline
         var base: Source.Iterator
 

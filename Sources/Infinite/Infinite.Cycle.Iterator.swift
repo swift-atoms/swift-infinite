@@ -2,7 +2,7 @@ public import Iterator_Protocol
 
 extension Infinite.Cycle {
 
-    public struct Iterator: ~Copyable, Iterator.Iterator.`Protocol` {
+    public struct Iterator: ~Copyable, Iterator::Iterator.`Protocol` {
         @usableFromInline
         let base: Base
 

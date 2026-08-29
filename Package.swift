@@ -23,6 +23,10 @@ let package = Package(
     ],
     dependencies: [
         .package(
+            url: "https://github.com/swift-atoms/swift-affine.git",
+            branch: "main"
+        ),
+        .package(
             url: "https://github.com/swift-atoms/swift-collection.git",
             branch: "main"
         ),
@@ -34,14 +38,20 @@ let package = Package(
             url: "https://github.com/swift-atoms/swift-iterator.git",
             branch: "main"
         ),
+        .package(
+            url: "https://github.com/swift-atoms/swift-tagged.git",
+            branch: "main"
+        ),
     ],
     targets: [
         .target(
             name: "Infinite",
             dependencies: [
+                .product(name: "Affine Carrier", package: "swift-affine"),
                 .product(name: "Collection", package: "swift-collection"),
                 .product(name: "Input", package: "swift-input"),
                 .product(name: "Iterator Protocol", package: "swift-iterator"),
+                .product(name: "Tagged", package: "swift-tagged"),
             ]
         ),
         .target(
