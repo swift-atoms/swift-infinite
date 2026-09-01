@@ -31,10 +31,6 @@ let package = Package(
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-atoms/swift-input.git",
-            branch: "main"
-        ),
-        .package(
             url: "https://github.com/swift-atoms/swift-iterator.git",
             branch: "main"
         ),
@@ -49,7 +45,6 @@ let package = Package(
             dependencies: [
                 .product(name: "Affine Carrier", package: "swift-affine"),
                 .product(name: "Collection", package: "swift-collection"),
-                .product(name: "Input", package: "swift-input"),
                 .product(name: "Iterator Protocol", package: "swift-iterator"),
                 .product(name: "Tagged", package: "swift-tagged"),
             ]
