@@ -24,8 +24,6 @@ extension __InfiniteObservableIterator {
     }
 }
 
-extension __InfiniteObservableIterator: @unchecked Sendable where Source: Sendable {}
-
 extension Infinite.Observable where Tail == Self {
 
     @inlinable

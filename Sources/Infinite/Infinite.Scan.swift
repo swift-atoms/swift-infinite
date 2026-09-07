@@ -35,10 +35,7 @@ extension Infinite.Scan {
 
 }
 
-extension Infinite.Scan: Sendable where Source: Sendable, Result: Sendable {}
-
-extension Infinite.Scan.Iterator: @unchecked Sendable
-where Source.Iterator: Sendable, Result: Sendable {}
+extension Infinite.Scan: Swift.Sendable where Source: Swift.Sendable, Result: Swift.Sendable {}
 
 extension Infinite.Scan: Infinite.Enumerable {}
 

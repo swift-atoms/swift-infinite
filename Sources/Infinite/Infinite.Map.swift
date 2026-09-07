@@ -28,9 +28,7 @@ extension Infinite.Map {
 
 }
 
-extension Infinite.Map: Sendable where Source: Sendable {}
-
-extension Infinite.Map.Iterator: @unchecked Sendable where Source.Iterator: Sendable {}
+extension Infinite.Map: Swift.Sendable where Source: Swift.Sendable {}
 
 extension Infinite.Map: Infinite.Enumerable {}
 

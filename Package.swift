@@ -13,8 +13,8 @@ let package = Package(
     ],
     products: [
         .library(name: "Infinite", targets: ["Infinite"]),
-        .library(name: "Infinite Standard Library Integration", targets: ["Infinite Standard Library Integration"]),
-        .library(name: "Infinite Foundation Library Integration", targets: ["Infinite Foundation Library Integration"]),
+
+        .library(name: "Infinite Foundation Integration", targets: ["Infinite Foundation Integration"]),
         .library(name: "Infinite Test Support", targets: ["Infinite Test Support"]),
     ],
     dependencies: [
@@ -46,20 +46,13 @@ let package = Package(
             ],
             path: "Sources/Infinite"
         ),
+        
         .target(
-            name: "Infinite Standard Library Integration",
+            name: "Infinite Foundation Integration",
             dependencies: [
                 .target(name: "Infinite"),
             ],
-            path: "Sources/Infinite Standard Library Integration"
-        ),
-        .target(
-            name: "Infinite Foundation Library Integration",
-            dependencies: [
-                .target(name: "Infinite"),
-                .target(name: "Infinite Standard Library Integration"),
-            ],
-            path: "Sources/Infinite Foundation Library Integration"
+            path: "Sources/Infinite Foundation Integration"
         ),
         .target(
             name: "Infinite Test Support",
@@ -74,8 +67,7 @@ let package = Package(
             dependencies: [
                 .target(name: "Infinite"),
                 .target(name: "Infinite Test Support"),
-                .target(name: "Infinite Standard Library Integration"),
-                .target(name: "Infinite Foundation Library Integration"),
+                .target(name: "Infinite Foundation Integration"),
             ],
             path: "Tests/Infinite Tests"
         ),

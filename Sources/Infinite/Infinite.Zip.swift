@@ -38,10 +38,7 @@ extension Infinite.Zip {
 
 }
 
-extension Infinite.Zip: Sendable where First: Sendable, Second: Sendable {}
-
-extension Infinite.Zip.Iterator: @unchecked Sendable
-where First.Iterator: Sendable, Second.Iterator: Sendable {}
+extension Infinite.Zip: Swift.Sendable where First: Swift.Sendable, Second: Swift.Sendable {}
 
 extension Infinite.Zip: Infinite.Enumerable {}
 

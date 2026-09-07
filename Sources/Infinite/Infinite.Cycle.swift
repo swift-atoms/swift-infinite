@@ -31,9 +31,7 @@ extension Infinite.Cycle {
     }
 }
 
-extension Infinite.Cycle: Sendable where Base: Sendable {}
-
-extension Infinite.Cycle.Iterator: @unchecked Sendable where Base: Sendable, Base.Index: Sendable {}
+extension Infinite.Cycle: Swift.Sendable where Base: Swift.Sendable {}
 
 extension Infinite.Cycle: Infinite.Enumerable {}
 
@@ -48,21 +46,5 @@ extension Infinite.Cycle: Infinite.Observable where Base: Swift.RandomAccessColl
     public var tail: Infinite.Cycle<Collection.Rotated<Base>> {
         let rotated = Collection.Rotated(base: base, startOffset: .one)
         return Infinite.Cycle<Collection.Rotated<Base>>(__unchecked: (), rotated)
-    }
-}
-
-extension Infinite.Cycle: Equatable where Base: Equatable {
-
-    @inlinable
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.base == rhs.base
-    }
-}
-
-extension Infinite.Cycle: Hashable where Base: Hashable {
-
-    @inlinable
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(base)
     }
 }
