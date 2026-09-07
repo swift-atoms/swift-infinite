@@ -12,14 +12,10 @@ let package = Package(
         .visionOS(.v27),
     ],
     products: [
-        .library(
-            name: "Infinite",
-            targets: ["Infinite"]
-        ),
-        .library(
-            name: "Infinite Test Support",
-            targets: ["Infinite Test Support"]
-        ),
+        .library(name: "Infinite", targets: ["Infinite"]),
+        .library(name: "Infinite Standard Library Integration", targets: ["Infinite Standard Library Integration"]),
+        .library(name: "Infinite Foundation Library Integration", targets: ["Infinite Foundation Library Integration"]),
+        .library(name: "Infinite Test Support", targets: ["Infinite Test Support"]),
     ],
     dependencies: [
         .package(
@@ -45,18 +41,31 @@ let package = Package(
             dependencies: [
                 .product(name: "Affine", package: "swift-affine"),
                 .product(name: "Collection", package: "swift-collection"),
-                .product(name: "Iterator Protocol", package: "swift-iterator"),
+                .product(name: "Iterator", package: "swift-iterator"),
                 .product(name: "Tagged", package: "swift-tagged"),
-            ]
+            ],
+            path: "Sources/Infinite"
+        ),
+        .target(
+            name: "Infinite Standard Library Integration",
+            dependencies: [
+                .target(name: "Infinite"),
+            ],
+            path: "Sources/Infinite Standard Library Integration"
+        ),
+        .target(
+            name: "Infinite Foundation Library Integration",
+            dependencies: [
+                .target(name: "Infinite"),
+                .target(name: "Infinite Standard Library Integration"),
+            ],
+            path: "Sources/Infinite Foundation Library Integration"
         ),
         .target(
             name: "Infinite Test Support",
             dependencies: [
                 .target(name: "Infinite"),
-                .product(
-                    name: "Collection Test Support",
-                    package: "swift-collection"
-                ),
+                .product(name: "Collection Test Support", package: "swift-collection"),
             ],
             path: "Tests/Support"
         ),
@@ -65,14 +74,17 @@ let package = Package(
             dependencies: [
                 .target(name: "Infinite"),
                 .target(name: "Infinite Test Support"),
-            ]
+                .target(name: "Infinite Standard Library Integration"),
+                .target(name: "Infinite Foundation Library Integration"),
+            ],
+            path: "Tests/Infinite Tests"
         ),
     ],
     swiftLanguageModes: [.v6]
 )
 
-for target in package.targets where ![.system, .binary, .plugin, .macro].contains(target.type) {
-    let ecosystem: [SwiftSetting] = [
+for target in package.targets {
+    target.swiftSettings = [
         .strictMemorySafety(),
         .enableUpcomingFeature("ExistentialAny"),
         .enableUpcomingFeature("InternalImportsByDefault"),
@@ -81,8 +93,4 @@ for target in package.targets where ![.system, .binary, .plugin, .macro].contain
         .enableExperimentalFeature("Lifetimes"),
         .enableUpcomingFeature("InferIsolatedConformances"),
     ]
-
-    let package: [SwiftSetting] = []
-
-    target.swiftSettings = (target.swiftSettings ?? []) + ecosystem + package
 }

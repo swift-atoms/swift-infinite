@@ -1,6 +1,6 @@
 public import Affine
 public import Collection
-import Iterator_Protocol
+import Iterator
 public import Tagged
 
 extension Infinite {
