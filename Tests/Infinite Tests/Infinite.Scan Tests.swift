@@ -3,10 +3,10 @@ import Testing
 @testable import Infinite
 
 @Suite
-struct `Infinite Scan Tests` {
-    @Suite struct Unit {
+struct `Infinite scans yield successive accumulator states` {
+    @Suite struct `Scans preserve the initial value and each accumulated result` {
         @Test
-        func `running sum`() {
+        func `Infinite scans yield successive running sums`() {
             let naturals = Infinite.Iterate(initial: 1) { $0 + 1 }
             let runningSums = Infinite.Scan(initial: 0, source: naturals) { acc, n in acc + n }
             let first6 = Array(runningSums.prefix(6))
@@ -15,7 +15,7 @@ struct `Infinite Scan Tests` {
         }
 
         @Test
-        func `running product (factorials)`() {
+        func `Infinite scans yield successive factorial products`() {
             let naturals = Infinite.Iterate(initial: 1) { $0 + 1 }
             let factorials = Infinite.Scan(initial: 1, source: naturals) { acc, n in acc * n }
             let first6 = Array(factorials.prefix(6))
@@ -24,7 +24,7 @@ struct `Infinite Scan Tests` {
         }
 
         @Test
-        func `extension method`() {
+        func `The scan convenience method preserves successive accumulator values`() {
             let ones = Infinite.Repeat(1)
             let runningSums = ones.scan(initial: 0) { acc, _ in acc + 1 }
             let first5 = Array(runningSums.prefix(5))
@@ -32,7 +32,7 @@ struct `Infinite Scan Tests` {
         }
 
         @Test
-        func `starts with initial value`() {
+        func `Infinite scans emit the initial accumulator before consuming elements`() {
             let naturals = Infinite.Iterate(initial: 100) { $0 + 1 }
             let scanned = Infinite.Scan(initial: 42, source: naturals) { acc, _ in acc }
             let first1 = Array(scanned.prefix(1))
@@ -40,7 +40,7 @@ struct `Infinite Scan Tests` {
         }
 
         @Test
-        func `type transformation in scan`() {
+        func `Infinite scans can accumulate elements into a different type`() {
             let naturals = Infinite.Iterate(initial: 1) { $0 + 1 }
             let strings = Infinite.Scan(initial: "", source: naturals) { acc, n in
                 acc.isEmpty ? String(n) : acc + "," + String(n)
@@ -50,7 +50,7 @@ struct `Infinite Scan Tests` {
         }
 
         @Test
-        func `scan with complex accumulator`() {
+        func `Infinite scans preserve multiple fields of accumulator state`() {
             struct Stats: Equatable, Sendable {
                 var sum: Int
                 var count: Int
@@ -71,6 +71,6 @@ struct `Infinite Scan Tests` {
         }
     }
 
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+    @Suite struct `No infinite scan boundary cases are defined` {}
+    @Suite struct `No infinite scan integration cases are defined` {}
 }

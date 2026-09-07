@@ -3,10 +3,10 @@ import Testing
 @testable import Infinite
 
 @Suite
-struct `Infinite Zip Tests` {
-    @Suite struct Unit {
+struct `Infinite zipping pairs corresponding elements` {
+    @Suite struct `Zipped heads tails and iterators pair both source positions` {
         @Test
-        func `zips naturals with squares`() {
+        func `Infinite zipping pairs natural numbers with their squares`() {
             let naturals = Infinite.Iterate(initial: 0) { $0 + 1 }
             let squares = naturals.map { $0 * $0 }
             let zipped = Infinite.Zip(naturals, squares)
@@ -21,7 +21,7 @@ struct `Infinite Zip Tests` {
         }
 
         @Test
-        func `static convenience method`() {
+        func `The zip convenience method pairs corresponding source elements`() {
             let ones = Infinite.Repeat(1)
             let twos = Infinite.Repeat(2)
             let zipped = Infinite.zip(ones, twos)
@@ -34,7 +34,7 @@ struct `Infinite Zip Tests` {
         }
 
         @Test
-        func `zips different types`() {
+        func `Infinite zipping preserves both source element types`() {
             let naturals = Infinite.Iterate(initial: 0) { $0 + 1 }
             let letters = Infinite.Cycle("abc")!
             let zipped = Infinite.Zip(naturals, letters)
@@ -74,7 +74,7 @@ struct `Infinite Zip Tests` {
         }
 
         @Test
-        func `head/tail matches iteration`() {
+        func `Head and tail traversal follows the generated sequence`() {
             let naturals = Infinite.Iterate(initial: 0) { $0 + 1 }
             let squares = naturals.map { $0 * $0 }
             let zipped = Infinite.Zip(naturals, squares)
@@ -95,6 +95,6 @@ struct `Infinite Zip Tests` {
         }
     }
 
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+    @Suite struct `No infinite zip boundary cases are defined` {}
+    @Suite struct `No infinite zip integration cases are defined` {}
 }

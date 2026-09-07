@@ -3,17 +3,17 @@ import Testing
 @testable import Infinite
 
 @Suite
-struct `Infinite Unfold Tests` {
-    @Suite struct Unit {
+struct `Infinite unfolding emits elements from evolving state` {
+    @Suite struct `Unfolded heads tails and iterators preserve state transitions` {
         @Test
-        func `natural numbers via unfold`() {
+        func `Unfolding incremented state generates the natural numbers`() {
             let naturals = Infinite.Unfold(seed: 0) { n in (n, n + 1) }
             let first10 = Array(naturals.prefix(10))
             #expect(first10 == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
         }
 
         @Test
-        func `Fibonacci sequence`() {
+        func `Unfolding paired state generates the Fibonacci sequence`() {
             let fib = Infinite.Unfold(seed: (0, 1)) { a, b in
                 (a, (b, a + b))
             }
@@ -35,7 +35,7 @@ struct `Infinite Unfold Tests` {
         }
 
         @Test
-        func `separate state and element types`() {
+        func `Infinite unfolding separates its state type from its element type`() {
 
             let products = Infinite.Unfold(seed: (1, 2)) { count, mult in
                 (count * mult, (count + 1, mult))
@@ -45,7 +45,7 @@ struct `Infinite Unfold Tests` {
         }
 
         @Test
-        func `alternating sequence via tuple state`() {
+        func `Unfolding tuple state alternates between selected values`() {
 
             let seq = Infinite.Unfold(seed: (true, 1, 2)) { toggle, a, b in
                 guard toggle else {
@@ -58,6 +58,6 @@ struct `Infinite Unfold Tests` {
         }
     }
 
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+    @Suite struct `No infinite unfold boundary cases are defined` {}
+    @Suite struct `No infinite unfold integration cases are defined` {}
 }

@@ -3,10 +3,10 @@ import Testing
 @testable import Infinite
 
 @Suite
-struct `Infinite Map Tests` {
-    @Suite struct Unit {
+struct `Infinite mapping transforms each element while preserving traversal` {
+    @Suite struct `Mapped heads tails and iterators apply each transformation` {
         @Test
-        func `maps naturals to squares`() {
+        func `Infinite mapping transforms natural numbers into their squares`() {
             let naturals = Infinite.Iterate(initial: 0) { $0 + 1 }
             let squares = Infinite.Map(naturals) { $0 * $0 }
             let first10 = Array(squares.prefix(10))
@@ -14,7 +14,7 @@ struct `Infinite Map Tests` {
         }
 
         @Test
-        func `extension method works`() {
+        func `The map convenience method transforms every source element`() {
             let naturals = Infinite.Iterate(initial: 0) { $0 + 1 }
             let doubled = naturals.map { $0 * 2 }
             let first5 = Array(doubled.prefix(5))
@@ -22,7 +22,7 @@ struct `Infinite Map Tests` {
         }
 
         @Test
-        func `chained maps`() {
+        func `Chained infinite maps compose their transformations in order`() {
             let naturals = Infinite.Iterate(initial: 1) { $0 + 1 }
             let result = naturals.map { $0 * 2 }.map { $0 + 1 }
             let first5 = Array(result.prefix(5))
@@ -30,7 +30,7 @@ struct `Infinite Map Tests` {
         }
 
         @Test
-        func `type transformation`() {
+        func `Infinite mapping can change the element type`() {
             let naturals = Infinite.Iterate(initial: 0) { $0 + 1 }
             let strings = naturals.map { String($0) }
             let first5 = Array(strings.prefix(5))
@@ -53,7 +53,7 @@ struct `Infinite Map Tests` {
         }
 
         @Test
-        func `head/tail matches iteration`() {
+        func `Head and tail traversal follows the generated sequence`() {
             let naturals = Infinite.Iterate(initial: 0) { $0 + 1 }
             let squares = naturals.map { $0 * $0 }
 
@@ -69,6 +69,6 @@ struct `Infinite Map Tests` {
         }
     }
 
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+    @Suite struct `No infinite map boundary cases are defined` {}
+    @Suite struct `No infinite map integration cases are defined` {}
 }

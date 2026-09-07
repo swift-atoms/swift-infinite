@@ -3,8 +3,8 @@ import Testing
 @testable import Infinite
 
 @Suite
-struct `Infinite Repeat Tests` {
-    @Suite struct Unit {
+struct `Infinite repetition yields one unchanged value` {
+    @Suite struct `Repeated values preserve constant traversal equality and hashing` {
         @Test
         func `init stores value`() {
             let repeat42 = Infinite.Repeat(42)
@@ -32,7 +32,7 @@ struct `Infinite Repeat Tests` {
         }
 
         @Test
-        func `works with different types`() {
+        func `Infinite repetition preserves string and floating point values`() {
             let strings = Infinite.Repeat("hello")
             #expect(Array(strings.prefix(3)) == ["hello", "hello", "hello"])
 
@@ -62,7 +62,7 @@ struct `Infinite Repeat Tests` {
         }
 
         @Test
-        func `can be used in Set`() {
+        func `Sets deduplicate repetitions with equal stored values`() {
             let set: Set<Infinite.Repeat<Int>> = [
                 Infinite.Repeat(1),
                 Infinite.Repeat(2),
@@ -72,6 +72,6 @@ struct `Infinite Repeat Tests` {
         }
     }
 
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+    @Suite struct `No infinite repeat boundary cases are defined` {}
+    @Suite struct `No infinite repeat integration cases are defined` {}
 }
