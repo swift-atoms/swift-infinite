@@ -1,4 +1,4 @@
-public import Affine_Carrier
+public import Affine
 public import Collection
 import Iterator_Protocol
 public import Tagged

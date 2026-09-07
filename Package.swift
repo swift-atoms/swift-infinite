@@ -43,7 +43,7 @@ let package = Package(
         .target(
             name: "Infinite",
             dependencies: [
-                .product(name: "Affine Carrier", package: "swift-affine"),
+                .product(name: "Affine", package: "swift-affine"),
                 .product(name: "Collection", package: "swift-collection"),
                 .product(name: "Iterator Protocol", package: "swift-iterator"),
                 .product(name: "Tagged", package: "swift-tagged"),
