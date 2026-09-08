@@ -19,10 +19,6 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-atoms/swift-affine.git",
-            branch: "main"
-        ),
-        .package(
             url: "https://github.com/swift-atoms/swift-collection.git",
             branch: "main"
         ),
@@ -39,7 +35,6 @@ let package = Package(
         .target(
             name: "Infinite",
             dependencies: [
-                .product(name: "Affine", package: "swift-affine"),
                 .product(name: "Collection", package: "swift-collection"),
                 .product(name: "Iterator", package: "swift-iterator"),
                 .product(name: "Tagged", package: "swift-tagged"),

@@ -1,4 +1,3 @@
-public import Affine
 public import Collection
 import Iterator
 public import Tagged

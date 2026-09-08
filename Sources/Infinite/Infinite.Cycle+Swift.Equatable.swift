@@ -1,4 +1,3 @@
-import Affine
 import Collection
 import Iterator
 import Tagged
