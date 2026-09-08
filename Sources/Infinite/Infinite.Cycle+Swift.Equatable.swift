@@ -1,7 +1,7 @@
-public import Affine
-public import Collection
+import Affine
+import Collection
 import Iterator
-public import Tagged
+import Tagged
 
 extension Infinite.Cycle: Swift.Equatable where Base: Swift.Equatable {
 
