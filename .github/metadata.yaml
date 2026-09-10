@@ -1,5 +1,3 @@
-# .github/metadata.yaml
-# Triaged by AI-assisted bulk pass (2026-04-29).
 description: "Lazy infinite-sequence generators (Repeat, Iterate, Unfold, Cycle) and transformers (Map, Zip, Scan) built on a head/tail coalgebra for Swift."
 topics:
   - primitives
