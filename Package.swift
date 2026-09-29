@@ -32,6 +32,13 @@ let package = Package(
         ),
     ],
     targets: [
+        .testTarget(
+            name: "Absorbed swift-infinite-collection Tests",
+            dependencies: [
+                .target(name: "Infinite"),
+            ],
+            path: "Tests/Absorbed swift-infinite-collection Tests"
+        ),
         .target(
             name: "Infinite",
             dependencies: [
@@ -41,7 +48,7 @@ let package = Package(
             ],
             path: "Sources/Infinite"
         ),
-        
+
         .target(
             name: "Infinite Foundation Integration",
             dependencies: [
