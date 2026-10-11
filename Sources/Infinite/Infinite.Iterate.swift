@@ -16,7 +16,7 @@ extension Infinite {
     }
 }
 
-extension Infinite.Iterate: Swift.Sendable where Element: Swift.Sendable {}
+extension Infinite.Iterate: Swift::Sendable where Element: Swift::Sendable {}
 
 extension Infinite.Iterate: Infinite.Observable {
 

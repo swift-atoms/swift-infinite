@@ -35,7 +35,7 @@ extension Infinite.Scan {
 
 }
 
-extension Infinite.Scan: Swift.Sendable where Source: Swift.Sendable, Result: Swift.Sendable {}
+extension Infinite.Scan: Swift::Sendable where Source: Swift::Sendable, Result: Swift::Sendable {}
 
 extension Infinite.Scan: Infinite.Enumerable {}
 

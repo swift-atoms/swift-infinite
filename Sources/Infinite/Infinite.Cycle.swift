@@ -4,7 +4,7 @@ public import Tagged
 
 extension Infinite {
 
-    public struct Cycle<Base: Swift.Collection> {
+    public struct Cycle<Base: Swift::Collection> {
 
         @usableFromInline
         let base: Base
@@ -30,11 +30,11 @@ extension Infinite.Cycle {
     }
 }
 
-extension Infinite.Cycle: Swift.Sendable where Base: Swift.Sendable {}
+extension Infinite.Cycle: Swift::Sendable where Base: Swift::Sendable {}
 
 extension Infinite.Cycle: Infinite.Enumerable {}
 
-extension Infinite.Cycle: Infinite.Observable where Base: Swift.RandomAccessCollection {
+extension Infinite.Cycle: Infinite.Observable where Base: Swift::RandomAccessCollection {
 
     @inlinable
     public var head: Base.Element {

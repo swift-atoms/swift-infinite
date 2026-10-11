@@ -16,7 +16,7 @@ extension Infinite {
     }
 }
 
-extension Infinite.Unfold: Swift.Sendable where State: Swift.Sendable {}
+extension Infinite.Unfold: Swift::Sendable where State: Swift::Sendable {}
 
 extension Infinite.Unfold: Infinite.Observable {
 

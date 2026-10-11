@@ -1,4 +1,4 @@
-extension Infinite.Repeat: Swift.Hashable where Element: Swift.Hashable {
+extension Infinite.Repeat: Swift::Hashable where Element: Swift::Hashable {
 
     @inlinable
     public func hash(into hasher: inout Hasher) {

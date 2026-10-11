@@ -38,7 +38,7 @@ extension Infinite.Zip {
 
 }
 
-extension Infinite.Zip: Swift.Sendable where First: Swift.Sendable, Second: Swift.Sendable {}
+extension Infinite.Zip: Swift::Sendable where First: Swift::Sendable, Second: Swift::Sendable {}
 
 extension Infinite.Zip: Infinite.Enumerable {}
 

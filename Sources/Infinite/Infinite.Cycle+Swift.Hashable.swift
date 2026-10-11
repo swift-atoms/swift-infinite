@@ -2,7 +2,7 @@ import Collection
 import Iterator
 import Tagged
 
-extension Infinite.Cycle: Swift.Hashable where Base: Swift.Hashable {
+extension Infinite.Cycle: Swift::Hashable where Base: Swift::Hashable {
 
     @inlinable
     public func hash(into hasher: inout Hasher) {
