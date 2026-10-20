@@ -1,7 +1,6 @@
 import Infinite
 import Testing
 
-
 @Suite
 struct `Infinite Cycle Observable Tests` {
     @Suite struct Unit {

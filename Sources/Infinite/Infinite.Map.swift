@@ -11,8 +11,7 @@ extension Infinite {
         let transform: @Sendable (Source.Element) -> Element
 
         @inlinable
-        public init(_ source: Source, _ transform: @escaping @Sendable (Source.Element) -> Element)
-        {
+        public init(_ source: Source, _ transform: @escaping @Sendable (Source.Element) -> Element) {
             self.source = source
             self.transform = transform
         }

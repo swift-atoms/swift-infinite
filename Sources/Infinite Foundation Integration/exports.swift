@@ -1,2 +1,2 @@
-@_exported public import Infinite
 import Foundation
+@_exported public import Infinite
