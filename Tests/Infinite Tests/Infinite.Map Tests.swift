@@ -2,8 +2,15 @@ import Testing
 
 @testable import Infinite
 
-@Suite
-struct `Infinite mapping transforms each element while preserving traversal` {
+enum `Infinite.Map Tests` {}
+
+extension `Infinite.Map Tests` {
+    @Suite
+    struct `Infinite mapping transforms each element while preserving traversal` {
+    }
+}
+
+extension `Infinite.Map Tests`.`Infinite mapping transforms each element while preserving traversal` {
     @Suite struct `Mapped heads tails and iterators apply each transformation` {
         @Test
         func `Infinite mapping transforms natural numbers into their squares`() {
@@ -70,5 +77,6 @@ struct `Infinite mapping transforms each element while preserving traversal` {
     }
 
     @Suite struct `No infinite map boundary cases are defined` {}
+
     @Suite struct `No infinite map integration cases are defined` {}
 }

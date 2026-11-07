@@ -2,8 +2,15 @@ import Testing
 
 @testable import Infinite
 
-@Suite
-struct `Infinite zipping pairs corresponding elements` {
+enum `Infinite.Zip Tests` {}
+
+extension `Infinite.Zip Tests` {
+    @Suite
+    struct `Infinite zipping pairs corresponding elements` {
+    }
+}
+
+extension `Infinite.Zip Tests`.`Infinite zipping pairs corresponding elements` {
     @Suite struct `Zipped heads tails and iterators pair both source positions` {
         @Test
         func `Infinite zipping pairs natural numbers with their squares`() {
@@ -96,5 +103,6 @@ struct `Infinite zipping pairs corresponding elements` {
     }
 
     @Suite struct `No infinite zip boundary cases are defined` {}
+
     @Suite struct `No infinite zip integration cases are defined` {}
 }

@@ -2,8 +2,15 @@ import Testing
 
 @testable import Infinite
 
-@Suite
-struct `Infinite unfolding emits elements from evolving state` {
+enum `Infinite.Unfold Tests` {}
+
+extension `Infinite.Unfold Tests` {
+    @Suite
+    struct `Infinite unfolding emits elements from evolving state` {
+    }
+}
+
+extension `Infinite.Unfold Tests`.`Infinite unfolding emits elements from evolving state` {
     @Suite struct `Unfolded heads tails and iterators preserve state transitions` {
         @Test
         func `Unfolding incremented state generates the natural numbers`() {
@@ -59,5 +66,6 @@ struct `Infinite unfolding emits elements from evolving state` {
     }
 
     @Suite struct `No infinite unfold boundary cases are defined` {}
+
     @Suite struct `No infinite unfold integration cases are defined` {}
 }

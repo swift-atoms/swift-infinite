@@ -2,8 +2,15 @@ import Testing
 
 @testable import Infinite
 
-@Suite
-struct `Infinite iteration repeatedly applies a state transformation` {
+enum `Infinite.Iterate Tests` {}
+
+extension `Infinite.Iterate Tests` {
+    @Suite
+    struct `Infinite iteration repeatedly applies a state transformation` {
+    }
+}
+
+extension `Infinite.Iterate Tests`.`Infinite iteration repeatedly applies a state transformation` {
     @Suite struct `Iterated heads tails and iterators follow repeated transformation` {
         @Test
         func `Repeated incrementing generates the natural numbers`() {
@@ -65,5 +72,6 @@ struct `Infinite iteration repeatedly applies a state transformation` {
     }
 
     @Suite struct `No infinite iterate boundary cases are defined` {}
+
     @Suite struct `No infinite iterate integration cases are defined` {}
 }

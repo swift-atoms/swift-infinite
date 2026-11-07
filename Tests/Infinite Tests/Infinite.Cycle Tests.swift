@@ -2,8 +2,15 @@ import Testing
 
 @testable import Infinite
 
-@Suite
-struct `Infinite cycles repeat the elements of a nonempty collection` {
+enum `Infinite.Cycle Tests` {}
+
+extension `Infinite.Cycle Tests` {
+    @Suite
+    struct `Infinite cycles repeat the elements of a nonempty collection` {
+    }
+}
+
+extension `Infinite.Cycle Tests`.`Infinite cycles repeat the elements of a nonempty collection` {
     @Suite struct `Cycle heads tails and iterators preserve the repeating collection` {
         @Test
         func `Infinite cycles repeat array elements in their original order`() {

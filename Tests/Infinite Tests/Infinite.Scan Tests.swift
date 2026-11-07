@@ -2,8 +2,15 @@ import Testing
 
 @testable import Infinite
 
-@Suite
-struct `Infinite scans yield successive accumulator states` {
+enum `Infinite.Scan Tests` {}
+
+extension `Infinite.Scan Tests` {
+    @Suite
+    struct `Infinite scans yield successive accumulator states` {
+    }
+}
+
+extension `Infinite.Scan Tests`.`Infinite scans yield successive accumulator states` {
     @Suite struct `Scans preserve the initial value and each accumulated result` {
         @Test
         func `Infinite scans yield successive running sums`() {
@@ -72,5 +79,6 @@ struct `Infinite scans yield successive accumulator states` {
     }
 
     @Suite struct `No infinite scan boundary cases are defined` {}
+
     @Suite struct `No infinite scan integration cases are defined` {}
 }

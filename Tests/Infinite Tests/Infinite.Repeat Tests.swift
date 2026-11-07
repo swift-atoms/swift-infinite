@@ -2,8 +2,15 @@ import Testing
 
 @testable import Infinite
 
-@Suite
-struct `Infinite repetition yields one unchanged value` {
+enum `Infinite.Repeat Tests` {}
+
+extension `Infinite.Repeat Tests` {
+    @Suite
+    struct `Infinite repetition yields one unchanged value` {
+    }
+}
+
+extension `Infinite.Repeat Tests`.`Infinite repetition yields one unchanged value` {
     @Suite struct `Repeated values preserve constant traversal equality and hashing` {
         @Test
         func `init stores value`() {
@@ -73,5 +80,6 @@ struct `Infinite repetition yields one unchanged value` {
     }
 
     @Suite struct `No infinite repeat boundary cases are defined` {}
+
     @Suite struct `No infinite repeat integration cases are defined` {}
 }
