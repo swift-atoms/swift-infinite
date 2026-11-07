@@ -21,3 +21,19 @@ extension Infinite.Repeat: Infinite.Observable {
     @inlinable
     public var tail: Self { self }
 }
+
+extension Infinite.Repeat: Swift::Equatable where Element: Swift::Equatable {
+
+    @inlinable
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.value == rhs.value
+    }
+}
+
+extension Infinite.Repeat: Swift::Hashable where Element: Swift::Hashable {
+
+    @inlinable
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(value)
+    }
+}

@@ -47,3 +47,19 @@ extension Infinite.Cycle: Infinite.Observable where Base: Swift::RandomAccessCol
         return Infinite.Cycle<Collection.Rotated<Base>>(__unchecked: (), rotated)
     }
 }
+
+extension Infinite.Cycle: Swift::Equatable where Base: Swift::Equatable {
+
+    @inlinable
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.base == rhs.base
+    }
+}
+
+extension Infinite.Cycle: Swift::Hashable where Base: Swift::Hashable {
+
+    @inlinable
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(base)
+    }
+}
